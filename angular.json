@@ -163,6 +163,91 @@
           }
         }
       }
+    },
+    "workshop01_revision": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/workshop01_revision",
+      "sourceRoot": "projects/workshop01_revision/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "browser": "projects/workshop01_revision/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/workshop01_revision/tsconfig.app.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/workshop01_revision/public"
+              }
+            ],
+            "styles": [
+              "projects/workshop01_revision/src/styles.css"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular/build:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "workshop01_revision:build:production"
+            },
+            "development": {
+              "buildTarget": "workshop01_revision:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular/build:extract-i18n"
+        },
+        "test": {
+          "builder": "@angular/build:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/workshop01_revision/tsconfig.spec.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/workshop01_revision/public"
+              }
+            ],
+            "styles": [
+              "projects/workshop01_revision/src/styles.css"
+            ]
+          }
+        }
+      }
     }
   }
 }

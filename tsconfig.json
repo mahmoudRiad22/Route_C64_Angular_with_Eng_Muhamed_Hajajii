@@ -35,6 +35,12 @@
     },
     {
       "path": "./projects/week02/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/workshop01_revision/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/workshop01_revision/tsconfig.spec.json"
     }
   ]
 }
